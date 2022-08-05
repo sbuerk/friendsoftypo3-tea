@@ -5,7 +5,7 @@
 1. Clone the repository and check out the `workshop/t3dd22` branch.
 2. Install the composer dependencies.
 3. Get the unit tests to run on the command line:
-   `composer ci:unit:tests`
+   `composer ci:tests:unit`
 4. Get the unit tests to run in PHPUnit.
    ([configuration](https://github.com/TYPO3-Documentation/tea/blob/main/Documentation/Running.rst#id18))
 
