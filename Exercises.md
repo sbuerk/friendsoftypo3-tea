@@ -6,7 +6,7 @@
 2. Install the composer dependencies.
 3. Get the unit tests to run on the command line:
    `composer ci:tests:unit`
-4. Get the unit tests to run in PHPUnit.
+4. (optional) Get the unit tests to run in PhpStorm.
    ([configuration](https://github.com/TYPO3-Documentation/tea/blob/main/Documentation/Running.rst#id18))
 
 ## Writing new features
