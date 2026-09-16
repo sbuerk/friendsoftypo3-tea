@@ -131,15 +131,15 @@
 		"check:coverage:functional": [
 			"@check:tests:create-directories",
 			"@coverage:create-directories",
-			"phpunit -c Build/phpunit/FunctionalTests.xml --exclude-group not-core-13.4 --exclude-group not-core-14.3 --coverage-php=build/coverage/functional.cov"
+			"phpunit -c Build/phpunit/FunctionalTests.xml --exclude-group not-core-13.4 --exclude-group not-core-14.3 --coverage-php=.Build/coverage/functional.cov"
 		],
 		"check:coverage:merge": [
 			"@coverage:create-directories",
-			"phpcov merge --clover=build/logs/clover.xml build/coverage/"
+			"phpcov merge --clover=.Build/logs/clover.xml .Build/coverage/"
 		],
 		"check:coverage:unit": [
 			"@coverage:create-directories",
-			"phpunit -c Build/phpunit/UnitTests.xml --exclude-group not-core-13.4 --exclude-group not-core-14.3 --coverage-php=build/coverage/unit.cov"
+			"phpunit -c Build/phpunit/UnitTests.xml --exclude-group not-core-13.4 --exclude-group not-core-14.3 --coverage-php=.Build/coverage/unit.cov"
 		],
 		"check:json:lint": "find . ! -path '*/.cache/*' ! -path '*/.Build/*' ! -path '*/node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"check:php": [
@@ -168,7 +168,7 @@
 		"check:xliff:lint": "php Build/Scripts/checkIntegrityXliff.php",
 		"check:xliff:normalize": "php Build/Scripts/xliffNormalizer.php --dry-run",
 		"check:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
-		"coverage:create-directories": "mkdir -p build/coverage build/logs",
+		"coverage:create-directories": "mkdir -p .Build/coverage .Build/logs",
 		"fix": [
 			"@fix:composer:normalize",
 			"@fix:php",
