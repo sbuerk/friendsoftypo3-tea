@@ -373,14 +373,14 @@ jobs:
           Build/Scripts/runTests.sh -b docker -s executeRstRendering
   code-coverage:
     name: Calculate code coverage
-    # The coverage is collected by running the suites once more with "-m", so this job consumes
-    # nothing the test jobs produce. It waits for them anyway, so that a coverage result is never
+    # The coverage is collected by running the suites once more with "-m". So this job consumes
+    # nothing the test jobs produce. It waits for them anyway so that a coverage result is never
     # published before the tests it is derived from have run.
     #
-    # "!cancelled()" rather than "always()" or "success() || failure()": the coverage is meant to
+    # "!cancelled()" rather than "always()" or "success() || failure()": The coverage data is meant to
     # be published even when a test suite fails, but "unit-tests" and "functional-tests" are
     # skipped when "php-lint" fails, and a skipped dependency would skip this job as well.
-    # "always()" would additionally run it after the whole run has been cancelled.
+    # "always()" would additionally run it after the whole run has been canceled.
     needs: [unit-tests, functional-tests]
     if: ${{ !cancelled() }}
     permissions:
@@ -426,9 +426,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # The reports of one run are merged into a single result, so they all have to come from
+          # The reports of one run are merged into a single result. So they all have to come from
           # the same installed dependency set. Collect the coverage for one TYPO3 and one PHP
-          # version only, rather than across the test matrix above.
+          # version only rather than across the test matrix above.
           - typo3-version: "14.3"
             php-version: "8.5"
             dbms: "sqlite"

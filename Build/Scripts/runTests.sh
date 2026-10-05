@@ -187,9 +187,9 @@ cleanRenderedDocumentationFiles() {
 }
 
 prepareCoverage() {
-    # Fills "${COVERAGE_OPTION}" with the phpunit option collecting the coverage, based on the
-    # file name the calling suite has put into "${COVERAGE_FILE}". Without "-m" the array stays
-    # empty, and an empty array adds no argument at all to the phpunit call.
+    # Fills "${COVERAGE_OPTION}" with the PHPUnit option collecting the coverage, based on the
+    # file name the calling suite has put into "${COVERAGE_FILE}". Without "-m", the array stays
+    # empty, and an empty array adds no argument at all to the PHPUnit call.
     COVERAGE_OPTION=()
     if [ ${CREATE_COVERAGE} -eq 0 ]; then
         return
@@ -729,8 +729,8 @@ else
 fi
 
 if [ ${CREATE_COVERAGE} -eq 1 ]; then
-    # Xdebug is the only coverage driver in the "core-testing" images, pcov is not installed
-    # there. The mode has to be set through the environment: the images ship Xdebug in mode
+    # Xdebug is the only coverage driver in the "core-testing" images; PCOV is not installed
+    # there. The mode has to be set through the environment: The images ship Xdebug in mode
     # "develop", and that is what "xdebug.mode" keeps reporting even while coverage is active.
     XDEBUG_MODE="-e XDEBUG_MODE=coverage"
     XDEBUG_CONFIG=" "
@@ -798,7 +798,7 @@ case ${TEST_SUITE} in
             COVERAGE_REPORTS+=("$(basename "${COVERAGE_REPORT}")")
         done
         # The error paths only set the exit code and let the run end in the "printSummary" every
-        # suite finishes with, rather than leaving through an exit of their own.
+        # suite finishes with rather than leaving through an exit of their own.
         if [ ${#COVERAGE_REPORTS[@]} -eq 0 ]; then
             echo "No coverage reports in \".Build/coverage/\" to merge." >&2
             echo "Run a test suite with \"-m\" first." >&2
