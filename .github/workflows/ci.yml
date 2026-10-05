@@ -429,7 +429,7 @@ jobs:
           # The reports of one run are merged into a single result, so they all have to come from
           # the same installed dependency set. Collect the coverage for one TYPO3 and one PHP
           # version only, rather than across the test matrix above.
-          - typo3-version: "13.4"
-            php-version: "8.2"
+          - typo3-version: "14.3"
+            php-version: "8.5"
             dbms: "sqlite"
             composer-dependencies: Max
